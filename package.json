@@ -1,0 +1,10 @@
+{
+  "name": "com.dehagge.debugconsole",
+  "version": "0.1.0",
+  "displayName": "Debug Console",
+  "description": "Debug / Cheat console for unity",
+  "unity": "2019.4",
+  "author": {
+    "name": "DeHagge"
+  }
+}
