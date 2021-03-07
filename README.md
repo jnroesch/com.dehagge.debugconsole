@@ -50,6 +50,7 @@ This package has the following dependencies:
 ```json
 "com.svermeulen.extenject": "https://github.com/starikcetin/Extenject.git#9.1.0"
 ```
+You can find the documentation and the full repository here: https://github.com/svermeulen/Extenject
 
 ## Usage
 
