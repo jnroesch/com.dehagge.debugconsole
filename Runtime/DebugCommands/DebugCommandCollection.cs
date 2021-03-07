@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Packages.com.dehagge.debugconsole.Runtime
+namespace Packages.com.dehagge.debugconsole.Runtime.DebugCommands
 {
     public class DebugCommandCollection
     {

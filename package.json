@@ -6,5 +6,9 @@
   "unity": "2019.4",
   "author": {
     "name": "DeHagge"
+  },
+  "gitDependencies":
+  {
+    "com.svermeulen.extenject": "https://github.com/starikcetin/Extenject.git#9.1.0"
   }
 }

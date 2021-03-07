@@ -1,5 +1,8 @@
 ﻿using System.Linq;
+using Packages.com.dehagge.debugconsole.Runtime.DebugCommandHandler;
+using Packages.com.dehagge.debugconsole.Runtime.DebugCommands;
 using UnityEngine;
+using Zenject;
 
 namespace Packages.com.dehagge.debugconsole.Runtime
 {
@@ -12,18 +15,17 @@ namespace Packages.com.dehagge.debugconsole.Runtime
         private string input;
 
         private DebugCommandCollection _commandCollection;
+        private IDebugCommandHandler _debugCommandHandler;
 
-        //TODO [Inject]
-        public void Initialize(DebugCommandCollection commandCollection)
+        [Inject]
+        public void Initialize(IDebugCommandHandler debugCommandHandler, DebugCommandCollection commandCollection)
         {
+            _debugCommandHandler = debugCommandHandler;
             _commandCollection = commandCollection;
         }
 
         private void Start()
         {
-            //TODO remove, will be replaced by inject
-            _commandCollection = new DebugCommandCollection();
-            
             _commandCollection.AddDebugCommand(new DebugCommand("help", "displays all available commands", "help", () =>
             {
                 showHelp = true;
@@ -40,18 +42,10 @@ namespace Packages.com.dehagge.debugconsole.Runtime
             
             if (!Input.GetKeyDown(KeyCode.Return) || string.IsNullOrWhiteSpace(input)) return;
 
-            HandleInput();
+            _debugCommandHandler.HandleConsoleInput(input);
             input = string.Empty;
         }
 
-        private void HandleInput()
-        {
-            var splitStrings = input.Split(' ');
-            var commandId = splitStrings.First();
-            var parameters = splitStrings.Skip(1).ToArray();
-
-            _commandCollection.GetCommand(commandId).Invoke(parameters);
-        }
 
         private void ToggleDebugConsole()
         {

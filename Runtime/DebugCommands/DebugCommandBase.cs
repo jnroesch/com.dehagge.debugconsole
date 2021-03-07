@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Globalization;
 
-namespace Packages.com.dehagge.debugconsole.Runtime
+namespace Packages.com.dehagge.debugconsole.Runtime.DebugCommands
 {
     public abstract class DebugCommandBase
     {

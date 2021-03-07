@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Packages.com.dehagge.debugconsole.Runtime
+namespace Packages.com.dehagge.debugconsole.Runtime.DebugCommands
 {
     public class DebugCommand : DebugCommandBase
     {
