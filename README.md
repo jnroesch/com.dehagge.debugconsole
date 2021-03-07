@@ -1,6 +1,18 @@
 # Debug Console for Unity3D
 
 ## Table of Contents
+- [Introduction](#introduction)
+- [Installation](#installation)
+    - [Enable Package Dependencies](#enable-package-dependencies)
+    - [Add Debug Console Package](#add-debug-console-package)
+    - [Recompile](#recompile)
+- [Dependencies](#dependencies)
+- [Usage](#usage)
+    - [Initialization](#initialization)
+    - [Adding DebugCommands](#adding-debugcommands)
+- [Extending with custom features](#extending-with-custom-features)
+- [Notes](#notes)
+
 
 ## Introduction
 
@@ -96,3 +108,6 @@ Create a new CommandHandler that implements `IDebugCommandHandler` and change th
 
 ### Change DebugConsole layout / handling
 Simply write your own implementation as an alternative to the `DebugConsoleController`. You can either create a new one and inject your CommandCollection and CommandHandler into it or get rid of the controller entirely as the ConsoleController merely acts as a wrapper/GUI for the CommandHandler.
+
+## Notes
+This implementation is based on the youtube tutorial of 'Game Dev Guide' (https://www.youtube.com/watch?v=VzOEM-4A2OM) but also includes some important fixes and makes the code much more reusable.
