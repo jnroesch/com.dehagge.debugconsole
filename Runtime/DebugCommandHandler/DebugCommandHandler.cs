@@ -22,7 +22,7 @@ namespace Packages.com.dehagge.debugconsole.Runtime.DebugCommandHandler
             var commandId = splitStrings.First();
             var parameters = splitStrings.Skip(1).ToArray();
 
-            _commandCollection.GetCommand(commandId).Invoke(parameters);
+            _commandCollection.GetCommand(commandId)?.Invoke(parameters);
         }
     }
 }

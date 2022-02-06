@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Packages.com.dehagge.debugconsole.Runtime.DebugCommands
@@ -12,9 +13,19 @@ namespace Packages.com.dehagge.debugconsole.Runtime.DebugCommands
             _collection = new Dictionary<string, DebugCommandBase>();
         }
 
-        public DebugCommandBase GetCommand(string command)
+        public DebugCommandBase GetCommand(string commandId)
         {
-            return _collection[command];
+            DebugCommandBase command;
+            try
+            {
+                command = _collection[commandId];
+            }
+            catch (Exception)
+            {
+                command = null;
+            }
+
+            return command;
         }
         
         public void AddDebugCommand(DebugCommandBase command)
@@ -22,7 +33,7 @@ namespace Packages.com.dehagge.debugconsole.Runtime.DebugCommands
             _collection.Add(command.CommandId, command);
         }
 
-        public List<DebugCommandBase> GetAvailableCommands()
+        public IEnumerable<DebugCommandBase> GetAvailableCommands()
         {
             return _collection.Values.ToList();
         }
