@@ -1,14 +1,13 @@
 {
   "name": "com.dehagge.debugconsole",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "displayName": "Debug Console",
   "description": "Debug / Cheat console for unity",
   "unity": "2019.4",
   "author": {
     "name": "DeHagge"
   },
-  "gitDependencies":
-  {
+  "gitDependencies": {
     "com.svermeulen.extenject": "https://github.com/starikcetin/Extenject.git#9.1.0"
   }
 }
