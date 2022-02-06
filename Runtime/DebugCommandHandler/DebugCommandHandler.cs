@@ -14,15 +14,19 @@ namespace Packages.com.dehagge.debugconsole.Runtime.DebugCommandHandler
             _commandCollection = collection;
         }
         
-        public void HandleConsoleInput(string input)
+        public bool HandleConsoleInput(string input)
         {
-            if (string.IsNullOrWhiteSpace(input)) return;
+            if (string.IsNullOrWhiteSpace(input)) return false;
             
             var splitStrings = input.Split(' ');
             var commandId = splitStrings.First();
             var parameters = splitStrings.Skip(1).ToArray();
 
-            _commandCollection.GetCommand(commandId)?.Invoke(parameters);
+            var command = _commandCollection.GetCommand(commandId);
+
+            if(command == null) return false;
+            command.Invoke(parameters);
+            return true;
         }
     }
 }

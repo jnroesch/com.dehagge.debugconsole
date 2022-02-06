@@ -2,6 +2,6 @@
 {
     public interface IDebugCommandHandler
     {
-        void HandleConsoleInput(string input);
+        bool HandleConsoleInput(string input);
     }
 }
